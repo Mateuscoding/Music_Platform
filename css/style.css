@@ -1,0 +1,266 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Concert One;
+    src: url(../Concert_One/ConcertOne-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Saira Condensed';
+    src: url(../Saira_Condensed/SairaCondensed-SemiBold.ttf);
+}
+
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    position: relative;
+}
+
+
+.container{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 820px;
+    height: 70vh;
+    background-image: url(../img/back.jpg);
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: -2px 4px 7px 3px rgba(2, 2, 2, 0.425);
+}
+
+.container-login{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+}
+
+.btns{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    /* gap: 20PX; */
+    /* margin-top: 10px; */
+    background-color: aliceblue;
+    
+}
+
+.btns button{
+    background-image:  linear-gradient(90deg, rgb(243, 61, 6) 20%, rgb(8, 136, 241) 100%);
+    border-radius: 0 5px 0px 5px;
+    border: none;
+    color: white;
+    padding: 15px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-weight: bold;
+
+}
+
+.btns button  i{
+    font-size: 20px;
+}
+
+.btns button:hover{
+    cursor: pointer;
+    color: rgb(27, 27, 27);
+    transition: .3s;
+    box-shadow: 5px 4px 7px 5px rgba(0, 0, 0, 0.603);
+
+}
+
+#btn-login{
+    transition: 1s;
+    display: none;
+    position: absolute;
+    right: 50%;
+}
+#btn-criar{
+    transition: 1s;
+    position: absolute;
+    left: 50%;
+}
+
+#login{
+    width: 410px;
+    transition: 1s;
+    /* height: 100%; */
+    /* background-color: rgb(0, 101, 252); */
+    background-color: rgb(27, 27, 27);
+    grid-column-start: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: white;
+    font-family: sans-serif;
+    text-align: left;
+
+}
+
+.logo{
+    margin-top: 30px;
+    width: 150px;
+    height: 100px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
+}
+
+
+#form-login, #form-criar{
+    margin-top: 30px;
+    /* margin-left: 50px; */
+    transition: 1.4s;
+    width: 100%;
+    /* height: 100px; */
+    /* background-color: rgb(241, 22, 22); */
+    display: flex;
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.h1-login{
+    text-align: left;
+    /* background-color: aqua; */
+    font-size: 60px;
+    margin-left: 50px;
+    margin-top: 50px;
+    color: white;
+    font-family: 'Saira Condensed';
+    font-weight: 200;
+}
+.p-login{
+    margin-top: 15px;
+    margin-left: 50px;
+    font-size: 13px;
+}
+
+.entrar{
+    border: none;
+    border-radius: 0 15px 0px 15px;
+    /* margin-top: 0px; */
+    color: white;
+    /* margin-top: 20px; */
+    margin: auto;
+    padding: 13px;
+    width: 250px;
+    background-color: transparent;
+    background-image: linear-gradient(90deg, rgb(243, 61, 6) 20%, rgb(8, 136, 241) 100%);
+    transition: .5s;
+    
+}
+
+
+.entrar:hover{
+    cursor: pointer;
+    color: black;
+    transition: .5s;
+        box-shadow: 5px 4px 7px 5px rgba(0, 0, 0, 0.603);
+}
+
+#form-login label{
+    margin-left: 50px;
+    color: rgba(161, 161, 161, 0.596);
+}
+
+#form-login input{
+    background-color: transparent;
+    outline: none;
+    height: 30px;
+    border: none;
+    /* border-bottom: 1px solid; */
+    width: 90%;
+    color: white;
+    border-radius: 3px;
+    
+}
+
+#form-login hr{
+    margin-bottom: 10px;
+    width: 90%;
+    height: 1px;
+    border: none;
+    background-image: linear-gradient(90deg, rgb(243, 61, 6) 20%, rgb(8, 136, 241) 100%);
+    /* background-image: linear-gradient(90deg, rgba(2,0,36,1) 26%, rgba(244,73,38,1) 35%, rgba(0,0,0,1) 100%) */
+}
+
+.acesso-rs{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    /* background-color: aqua; */
+    width: 100%; 
+}
+.icons i{
+    font-size: 30px;
+}
+
+.icons i:hover{
+    cursor: pointer;
+    transition: 1s;
+    color: rgb(83, 83, 83);
+}
+
+/* .form-login label{
+    
+} */
+
+
+#criar{
+    transition: 1s;
+    width: 410px;
+    grid-column-start: 2;
+    height: 100%;
+    /* background-color: rgb(0, 101, 252); */
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    margin-left: -820px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 13px;
+    justify-content: center;
+}
+
+.container-criar{
+    width: 80%;
+    height: 100%;
+}
+
+#criar h1{
+    margin-top: 50px;
+    font-family: 'Saira Condensed';
+    font-size: 60px;
+}
+
+#criar input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: aliceblue;
+}
+
+#criar hr{
+    height: 1px;
+    border: none;
+    background-image: linear-gradient(90deg, rgb(243, 61, 6) 20%, rgb(8, 136, 241) 100%);
+    margin-bottom: 10px;
+}
+

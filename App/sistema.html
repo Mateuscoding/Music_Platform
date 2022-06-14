@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container-geral">
+
+
+        <header>
+            <nav id="nav">
+                <ul class="menu">
+                    <li>
+                        <i id="nav-player" class='bx bx-music nav'></i>
+                    </li>
+                    <li><i id="nav-podcast" class='bx bx-podcast nav'></i></li>
+                    <li>
+                        <i id="nav-radio" class='bx bx-radio nav'></i>
+                    </li>
+                    <li>
+                        <i id="nav-explorar" class='bx bx-layer nav'></i>
+                    </li>
+                    <li>
+                        <i id="nav-favoritos" class='bx bx-star nav'></i>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        
+        <div id="player">
+
+            
+                <div id="musicaAtual">
+
+                    <div class="dados">
+                        <img src="../img/back.jpg" alt="">
+                        <h1 id="nome-musica">Here will be edited soon
+                        </h1>
+                        <p id="artista">
+                            JUSTIN TIMBERLAKE
+                        </p>
+                        <audio id="audio" src="./playlist/musica.mp3"></audio>
+                    </div>
+
+                    
+                    <div class="barra">
+                        <progress id="progresso" value="0" max="100">
+                        </progress>
+                        <div class="ponto"></div>
+                    </div>
+                    <div class="tempo">
+                        <p id="inicio"></p>
+                        <p id="fim">03:43</p>
+                    </div>
+                    <div class="btns">
+                        <button id="back">
+                            <i class='bx bx-chevron-left' ></i>
+                        </button>
+                        <button id="pause">
+                            <i class='bx bx-pause'></i>
+                        </button>
+                        <button id="play">
+                            <i class='bx bx-play'></i>
+                        </button>
+                        <button id="next">
+                            <i class='bx bxs-chevron-right'></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="playlist">
+                    <p>PROXIMAS MUSICAS</p>
+                    <ul>
+                        <li>
+                            <img src="../img/back.jpg" alt="">
+                            <p> <span> Ed Sheraan</span> - I love you</p>
+                        </li>
+                        <li>
+                            <img src="../img/back.jpg" alt="">
+                            <p> <span> Ed Sheraan</span> - I love you</p>
+                        </li>
+                        <li>
+                            <img src="../img/back.jpg" alt="">
+                            <p> <span> Ed Sheraan</span> - I love you</p>
+                        </li>
+                        <li>
+                            <img src="../img/back.jpg" alt="">
+                            <p> <span> Ed Sheraan</span> - I love you</p>
+                        </li>
+                        <li>
+                            <img src="../img/back.jpg" alt="">
+                            <p> <span> Ed Sheraan</span> - I love you</p>
+                        </li>
+        
+                    </ul>
+                </div>
+
+        </div>
+
+
+        <div id="podcasts">
+
+        </div>
+
+        <div id="container-radio">
+
+                <div class="radio">
+
+                    <!-- <video src="../App/radio/video-back.mp4" autoplay></video> -->
+
+                    <div class="iconSpan">
+                        <span>.</span>
+                        <span>.</span>
+                        <span>.</span>
+                        <span>.</span>
+                        <span>.</span>
+                    </div>
+                    <h1>108.5</h1>
+                </div>
+
+            <div class="btnsRadio">
+                <button><i class='bx bx-play'></i></button>
+                <button>
+                    <i class='bx bx-stop'></i>
+                </button>
+            </div>
+
+
+            <!-- <div class="animation-back">
+                <span>.</span>
+            </div> -->
+        </div>
+
+    </div>
+
+
+
+
+    <script src="./js/interface.js"></script>
+
+</body>
+</html>
