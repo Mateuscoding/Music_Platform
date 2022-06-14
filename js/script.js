@@ -1,3 +1,6 @@
+alert('Bem vindo ao meu projeto')
+alert('Para acessar o sistema interno, é clicar em "entrar diratamente')
+
 let btnLogin = document.querySelector('#btn-login')
 let btnCriar = document.querySelector('#btn-criar')
 
