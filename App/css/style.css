@@ -112,7 +112,7 @@ header{
     }
 
 .barra{
-    margin-top: -25px;
+    margin-top: -30px;
     display: flex;
     width: 300px;
     height: 1px;
@@ -123,7 +123,7 @@ header{
 }
 
 #progresso{
-    width: 10%;
+    width: 0%;
     height: 2px;
     /* background-color: red; */
 }
@@ -138,6 +138,7 @@ header{
 
 .tempo{
     color: white;
+    font-family: 'Saira Condensed';
     width: 300px;
     /* background-color: black; */
     display: flex;

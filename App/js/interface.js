@@ -1,16 +1,55 @@
-let audio = document.querySelector('#audio')
+let tagAudio = document.querySelector('#audio')
 let btnPlayer = document.querySelector('#play')
 let btnPause = document.querySelector('#pause')
 let btnNext = document.querySelector('#next')
 let btnBack = document.querySelector('#back')
+let index = 1 // posição inicial da musica referente ao array "MUSICAS"
 
 let inicio = document.querySelector('#inicio')
 
+// PACK DE MUSICAS - PLAYLIST 
+
+let musicas = [
+    {
+    font: './playlist/musica0/Jason Derulo - Swalla (BL Moombahton Remix).mp3',
+    musica: 'Swalla (BL Moombahton Remix)', 
+    artista: 'Jason Derulo',
+    capa: './playlist/musica0/capa.jpg'
+  }
+,
+  {
+    font: './playlist/musica1/Tim Maia - Sossego (Lazy Bear Bootleg).mp3',
+    musica: 'Sossego (remix)', 
+    artista: 'Tim Maia',
+    capa: './playlist/musica1/capa.jpg'
+  }
+]
+
+// ATUALIZAÇÃO INICIAL DO PLAYER 
+// document.querySelector('#fim').textContent = minutos +':'+segundos;
+
+tagAudio.setAttribute('src', musicas[index].font)
+
+window.onload = info(0)
+function info(index){
+    let minutos = Math.floor(audio.duration / 60)
+    let segundos = Math.floor(audio.duration % 60);
+    document.querySelector('#fim').textContent = minutos +':'+segundos;
+    document.querySelector('#nome-musica').textContent = musicas[index].musica
+    document.querySelector('#artista').textContent = musicas[index].artista
+    document.querySelector('#capa').setAttribute('src', musicas[index].capa)
+    
+}
+
+//****** funcao para os botoes ******//
+
 btnPlayer.addEventListener('click', ()=>{
     audio.play()
+    info(index)
     btnPlayer.style.display = 'none'
     btnPause.style.display = 'flex'
     audio.addEventListener('timeupdate', tempo)
+    // tagAudio.setAttribute('src', musicas[index].font)
 
 })
 
@@ -21,6 +60,28 @@ btnPause.addEventListener('click', ()=>{
     btnPause.style.display = 'none'
 })
 
+btnBack.addEventListener('click', ()=>{
+    index--
+    audio.pause()
+    // audio.currentTime = 0
+    info(index)
+    tagAudio.setAttribute('src', musicas[index].font)
+    audio.play()
+
+
+    
+})
+
+btnNext.addEventListener('click', ()=>{
+    index++
+    audio.pause()
+    // audio.currentTime = 0
+    info(index)
+    tagAudio.setAttribute('src', musicas[index].font)
+    audio.play()
+
+    
+})
 
 audio.addEventListener('timeupdate', tempo())
 
@@ -54,14 +115,11 @@ function tempo(){
 
 }
 
-
-
-
 function uploadBarra(tempoReal){
     
     let progresso = document.querySelector('#progresso')
     let progressoAtual = Math.floor((tempoReal/audio.duration) * 100)
-    console.log(progressoAtual)
+    // console.log(progressoAtual)
     progresso.style.width = progressoAtual+'%'
 
 }
@@ -130,4 +188,3 @@ btnMenu.forEach((sessao)=>{
 
     })
 })
-
