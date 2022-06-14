@@ -1,2 +1,3 @@
 # Music_Platform
- Projeto Básico de um
+ Projeto Básico Plataforma de Música - Em andamento
+ link page: https://mateuscoding.github.io/Music_Platform/
