@@ -8,6 +8,21 @@
     src: url('../../Saira_Condensed/SairaCondensed-Medium.ttf');
 }
 
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../../App/Bebas_Neue/BebasNeue-Regular.ttf');
+}
+
+
+.dados-podcast i{
+    font-size: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 51, 0);
+}
+
 .oculto{
     visibility: hidden;
 }
@@ -15,14 +30,16 @@
 body{
     width: 100%;
     height: 100vh;
-    background-color: rgb(26, 26, 26);
+    background-color: white;
     color: rgb(26, 26, 26);
 }
 
-.container-geral{
+#container-geral{
     display: flex;
     width: 100%;
     height: 100vh;
+    /* background-color: ; */
+    /* background-repeat: no-repeat; */
 }
 
 header{
@@ -35,8 +52,18 @@ header{
     height: 100%;
     /* background-color: white; */
     display: flex;
+    flex-direction: column;
+    gap: 100px;
     align-items: center;
     justify-content: center;
+}
+
+#logo{
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    text-align: center;
+    top: 30px;
 }
 
 .menu{
@@ -45,8 +72,8 @@ header{
     gap: 30px;
     /* margin-left: 40px; */
     list-style: none;
-    font-size: 30px;
-    color: rgb(230, 230, 230);
+    font-size: 20px;
+    color: rgb(26, 26, 26);
 }
 
 .menu li > i{
@@ -70,7 +97,7 @@ header{
     align-items: center;
     /* background-color: aqua; */
     /* margin: 0px auto; */
-    /* display: none; */
+    display: none;
 }
 
 #musicaAtual{
@@ -80,6 +107,7 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: rgba(255, 51, 0, 0.582); */
 }
 .dados{
     width: 300px;
@@ -92,31 +120,32 @@ header{
     /* background-color: black; */
 }
     .dados img{
-        width: 100%;
-        height: 60%;
-        border-radius: 15px;
+        width: 25vw;
+        height: 50%;
+        border-radius: 5px;
     }
 
     #nome-musica{
         line-height: 30px;
         text-align: center;
-        color: white;
+        color: rgb(26, 26, 26);
         margin: 10px;
     }
     #artista{
         text-align: center;
-        color: white;
+        color: rgb(26, 26, 26);
         font-size: 20px;
         /* margin-top: 10px; */
 
     }
 
 .barra{
-    margin-top: -30px;
+    margin-top: -50px;
     display: flex;
     width: 300px;
-    height: 1px;
-    background-color: rgba(255, 254, 254, 0.233);
+    height: 10px;
+    border-radius: 15px;
+    background-color: rgb(26, 26, 26);
     /* border: 1px solid white; */
     align-items: center;
     margin-bottom: 10px;
@@ -124,8 +153,8 @@ header{
 
 #progresso{
     width: 0%;
-    height: 2px;
-    /* background-color: red; */
+    height: 10px;
+    background-color: rgb(255, 51, 0);
 }
 
 .ponto{
@@ -137,7 +166,7 @@ header{
 }
 
 .tempo{
-    color: white;
+    color: rgb(26, 26, 26);
     font-family: 'Saira Condensed';
     width: 300px;
     /* background-color: black; */
@@ -147,13 +176,14 @@ header{
 
 .btns{
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 30px;
 }
 .btns button{
-    color: white;
+    color: rgb(26, 26, 26);
     border: none;
-    width: 50px;
-    height:50px;
+    width: 35px;
+    height:35px;
     font-size: 30px;
     border-radius: 50%;
     display: flex;
@@ -162,6 +192,8 @@ header{
     background-color: transparent;
     border: 1px solid white;
     transition: .5s;
+  
+        box-shadow: 2px -2px 13px -5px rgb(54, 54, 54);
 }
 
 .btns button:hover{
@@ -174,6 +206,8 @@ header{
 #pause, #play{
     background-color: white;
     color: rgb(255, 51, 0);
+    width: 50px;
+    height: 50px;
 }
 #pause{
     display: none;
@@ -181,9 +215,6 @@ header{
 
 
 .playlist{
-    width: 40%;
-    height: 100%;
-    /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -191,9 +222,37 @@ header{
 
 }
 
+    .playlist ul{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+        
+        /* padding-top: 500px; */
+        height: 70vh;
+        overflow-y: scroll;
+        /* background-color: rgb(255, 145, 0); */
+        /* box-sizing: border-box; */
+    }
+
+    #lista::-webkit-scrollbar-track {
+        background-color: #F4F4F4;
+    }
+    #lista::-webkit-scrollbar {
+        width: 4px;
+        background: #F4F4F4;
+    }
+    #lista::-webkit-scrollbar-thumb {
+        background: rgba(255, 51, 0, 0.507);
+        border-radius: 15px;
+    }
+
+
+
     .playlist p:nth-child(1){
-        color: white;
+        color: rgb(26, 26, 26);
         font: 15px 'Saira Condensed';
+        /* padding-top: 2  00px; */
     }
     .playlist li p span{
         /* color: black; */
@@ -204,30 +263,37 @@ header{
 
     .playlist li{
         list-style-type: none;
-        background-color: white;
+        /* background-color: rgb(255, 8, 8); */
         color: black;
-        width: 230px;
-        height: 15px;
-        padding: 30px;
-        border-radius: 5px;
-        margin: 20px;
+        width: 300px;
+        height: 80px;
+        /* padding: 10px; */
+        /* border-radius: 7px; */
+        margin: 10px 10px;
         border: 1px solid white;
         display: flex;
         align-items: center;
-
+        z-index: 1000000;
         font-family: 'Saira Condensed';
         gap: 10px;
-        -webkit-box-shadow: 10px 8px 5px -5px rgba(13,12,13,1);
-        -moz-box-shadow: 10px 8px 5px -5px rgba(13,12,13,1);
-        box-shadow: 10px 8px 5px -5px rgb(54, 54, 54);
+        /* box-shadow: 0px 10px 10px -5px rgb(54, 54, 54); */
+        border-bottom: 1px solid rgba(126, 125, 125, 0.71);
         transition: .5s;
+
+        /* overflow: scroll; */
     }
+
+ 
     
     .playlist li:hover{
         cursor: pointer;
         transition: .5s;
-        color: white;
-        background-color: transparent;
+        color: rgb(26, 26, 26);
+        background-color: rgba(255, 51, 0, 0.966);
+        /* box-shadow: 0px -2px 20px -5px rgb(0, 0, 0); */
+        padding: 10px;
+        /* font-size: 19px; */
+
         /* border: 1px solid white; */
     }
 
@@ -266,12 +332,16 @@ header{
         display: grid;
         grid-template: 1fr 1fr / 1fr 1fr;
         justify-content: center;
+        align-items: center;
+        background-color: aquamarine;
         overflow: hidden;
     }
 
     #musicaAtual{
         margin: 0;
         width: 100%;
+        height: 80vh;
+        background-color: aqua;
         grid-column-start: 1;
         grid-column-end: 3;
     }
@@ -283,6 +353,7 @@ header{
         grid-column-end: 3;
         flex-direction: row;
         justify-content: center;
+        /* background-color: ; */
     }
 
     .playlist li{
@@ -291,8 +362,8 @@ header{
      
         padding: 0;
         width: 230px;
-        height: 80%;
-        color: white;
+        height: 230px;
+        color: rgb(26, 26, 26);
         
         justify-content: center;
         align-items: center;
@@ -302,42 +373,73 @@ header{
         border-radius: 5px;
     
     }
-
-    .playlist li:hover{
-        opacity: .5;
-    }
     .playlist ul{
         width: 100%;
-        height: 100%;
+        height: 100px;
         display: flex;
+        flex-direction: row;
         align-items: center;
         overflow-x: scroll;
-    }
-    .playlist img{
-        width: 130px;
-        height: 70%;
+        
     }
 
+    .playlist li{
+        height: 100%;
+        padding: 10px;
+    }
     .playlist li p{
-     
-        position: absolute;
-        background-color: black;
+        width: 300px;
+    
+    }
+
+}
+
+@media (max-width: 412px) {
+
+    header{
+        display: none;
+    }
+
+    #player{
         width: 100%;
-        text-align: center;
     }
 
 
+    .playlist{
+        margin-left: 15px;
+    }
+    .playlist > .item-playlist img{
+        width: 20px;
+    }
 }
 
 /************* PODCAST *********** */
 
 
 #podcasts{
+    position: relative;
     width: 80%;
     height: 100vh;
-    display: none;
-    background-color: aquamarine;
+    display: flex;
+    background-color: white;
+    font-family: 'Bebas Neue';
 }
+
+.dados-podcast{
+    margin: 0;
+    position: absolute;
+    /* width: 100%; */
+    /* background-color: aqua; */
+    /* height: 100vh; */
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    /* display: flex; */
+    /* flex-direction: column; */
+    text-align: center;
+}
+
+
 
 
 
@@ -397,7 +499,7 @@ header{
     /* content: ''; */
     width: 10px;
     height: 40px;
-    background-color: white;
+    background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan1 alternate-reverse 1s infinite;
 }
@@ -406,7 +508,7 @@ header{
     /* content: ''; */
     width: 10px;
     height: 70px;
-    background-color: white;
+    background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan2 alternate 1s infinite;
 
@@ -416,7 +518,7 @@ header{
     /* content: ''; */
     width: 10px;
     height: 100px;
-    background-color: white;
+    background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan3 alternate 1s infinite;
 
@@ -426,7 +528,7 @@ header{
     /* content: ''; */
     width: 10px;
     height: 70px;
-    background-color: white;
+    background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan4 alternate 1s infinite;
 
@@ -436,7 +538,7 @@ header{
     /* content: ''; */
     width: 10px;
     height: 40px;
-    background-color: white;
+    background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan5 alternate-reverse 1s infinite;
 
@@ -517,7 +619,7 @@ header{
     background-color: transparent;
     font-size: 40px;
     padding: 10px;
-    color: white;
+    color: rgb(26, 26, 26);
     border: 1px solid rgba(54, 54, 54, 0.055);
     border-radius: 3px;
     line-height: 40px;
@@ -529,7 +631,8 @@ header{
 
 .btnsRadio button:hover{
     transition: .5s;
-    background-color: white;
-    color: rgb(54, 54, 54);
+    background-color: rgb(26, 26, 26);
+    color: rgb(255, 51, 0);
+    cursor: pointer;
 }
 

@@ -13,11 +13,14 @@
 </head>
 <body>
     
-    <div class="container-geral">
+    <div id="container-geral">
 
 
         <header>
             <nav id="nav">
+                <a href="#" id="logo">
+                    <img src="../img/logo.png" alt="" width="100%">
+                </a>
                 <ul class="menu">
                     <li>
                         <i id="nav-player" class='bx bx-music nav'></i>
@@ -43,7 +46,7 @@
                 <div id="musicaAtual">
 
                     <div class="dados">
-                        <img id="capa" src="../img/back.jpg" alt="">
+                        <img id="capa" src="" alt="">
                         <h1 id="nome-musica">
                         </h1>
                         <p id="artista"></p>
@@ -53,13 +56,13 @@
 
                     
                     <div class="barra">
-                        <progress id="progresso" value="0" max="100">
-                        </progress>
+                        <div id="progresso" value="0" max="100">
+                        </div>
                         <div class="ponto"></div>
                     </div>
                     <div class="tempo">
                         <p id="inicio"></p>
-                        <p id="fim">03:43</p>
+                        <p id="fim"></p>
                     </div>
                     <div class="btns">
                         <button id="back">
@@ -78,30 +81,31 @@
                 </div>
 
 
+
                 <div class="playlist">
-                    <p>PROXIMAS MUSICAS</p>
-                    <ul>
-                        <li>
+                    <p>MINHAS MUSICAS</p>
+                    <ul id="lista">
+                        <!-- <li>
                             <img src="../img/back.jpg" alt="">
-                            <p> <span> Ed Sheraan</span> - I love you</p>
+                            <p> <span> Ed Sheraan</span> <br>I love you</p>
                         </li>
                         <li>
                             <img src="../img/back.jpg" alt="">
-                            <p> <span> Ed Sheraan</span> - I love you</p>
+                            <p> <span> Ed Sheraan</span><br>I love you</p>
                         </li>
                         <li>
                             <img src="../img/back.jpg" alt="">
-                            <p> <span> Ed Sheraan</span> - I love you</p>
+                            <p> <span> Ed Sheraan</span><br>I love you</p>
                         </li>
                         <li>
                             <img src="../img/back.jpg" alt="">
-                            <p> <span> Ed Sheraan</span> - I love you</p>
+                            <p> <span> Ed Sheraan</span><br>I love you</p>
                         </li>
                         <li>
-                            <img src="../img/back.jpg" alt="">
-                            <p> <span> Ed Sheraan</span> - I love you</p>
-                        </li>
-        
+                            <img src="../App/podcast/Tropa do Podpah/capa.jpeg" alt="">
+                            <p> <span> Ed Sheraan</span> <br>I love you</p>
+                        </li> -->
+                        
                     </ul>
                 </div>
 
@@ -109,6 +113,11 @@
 
 
         <div id="podcasts">
+
+                <div class="dados-podcast">
+                        <img src="../App/podcast/microfone.png" alt="" width="300px">
+                        <h1>Risos com Igor Guimarães</h1>
+                </div>
 
         </div>
 
@@ -129,7 +138,7 @@
                 </div>
 
             <div class="btnsRadio">
-                <button><i class='bx bx-play'></i></button>
+                <button id="iniciarRadio"><i class='bx bx-play'></i></button>
                 <button>
                     <i class='bx bx-stop'></i>
                 </button>

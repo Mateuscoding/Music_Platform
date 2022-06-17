@@ -3,14 +3,53 @@ let btnPlayer = document.querySelector('#play')
 let btnPause = document.querySelector('#pause')
 let btnNext = document.querySelector('#next')
 let btnBack = document.querySelector('#back')
-let index = 1 // posição inicial da musica referente ao array "MUSICAS"
+let index = 0 // posição inicial da musica referente ao array "MUSICAS"
 
 let inicio = document.querySelector('#inicio')
 
 // PACK DE MUSICAS - PLAYLIST 
 
-let musicas = [
+let playlist = [
     {
+    font: './playlist/musica0/Jason Derulo - Swalla (BL Moombahton Remix).mp3',
+    musica: 'Swalla (BL Moombahton Remix) 1', 
+    artista: 'Jason Derulo',
+    capa: './playlist/musica0/capa.jpg'
+  }
+,
+  {
+    font: './playlist/musica1/Tim Maia - Sossego (Lazy Bear Bootleg).mp3',
+    musica: 'Sossego (remix) 2', 
+    artista: 'Tim Maia',
+    capa: './playlist/musica1/capa.jpg'
+  },
+  {
+    font: './playlist/musica0/Jason Derulo - Swalla (BL Moombahton Remix).mp3',
+    musica: 'Swalla (BL Moombahton Remix)', 
+    artista: 'Jason Derulo',
+    capa: './playlist/musica0/capa.jpg'
+  }
+,
+  {
+    font: './playlist/musica1/Tim Maia - Sossego (Lazy Bear Bootleg).mp3',
+    musica: 'Sossego (remix)', 
+    artista: 'Tim Maia',
+    capa: './playlist/musica1/capa.jpg'
+  },
+  {
+    font: './playlist/musica0/Jason Derulo - Swalla (BL Moombahton Remix).mp3',
+    musica: 'Swalla (BL Moombahton Remix)', 
+    artista: 'Jason Derulo',
+    capa: './playlist/musica0/capa.jpg'
+  }
+,
+  {
+    font: './playlist/musica1/Tim Maia - Sossego (Lazy Bear Bootleg).mp3',
+    musica: 'Sossego (remix)', 
+    artista: 'Tim Maia',
+    capa: './playlist/musica1/capa.jpg'
+  },
+  {
     font: './playlist/musica0/Jason Derulo - Swalla (BL Moombahton Remix).mp3',
     musica: 'Swalla (BL Moombahton Remix)', 
     artista: 'Jason Derulo',
@@ -28,30 +67,38 @@ let musicas = [
 // ATUALIZAÇÃO INICIAL DO PLAYER 
 // document.querySelector('#fim').textContent = minutos +':'+segundos;
 
-tagAudio.setAttribute('src', musicas[index].font)
+tagAudio.setAttribute('src', playlist[index].font)
 
-window.onload = info(0)
+window.onload = info(index)
+
 function info(index){
-    let minutos = Math.floor(audio.duration / 60)
-    let segundos = Math.floor(audio.duration % 60);
-    document.querySelector('#fim').textContent = minutos +':'+segundos;
-    document.querySelector('#nome-musica').textContent = musicas[index].musica
-    document.querySelector('#artista').textContent = musicas[index].artista
-    document.querySelector('#capa').setAttribute('src', musicas[index].capa)
+
+    setTimeout(()=>{
+
+        let minutos = Math.floor(tagAudio.duration / 60)
+        let segundos = Math.floor(tagAudio.duration % 60);
+        
+        document.querySelector('#fim').textContent = minutos +':'+segundos;
+        document.querySelector('#nome-musica').textContent = playlist[index].musica
+        document.querySelector('#artista').textContent = playlist[index].artista
+        document.querySelector('#capa').setAttribute('src', playlist[index].capa)
+    }, 100)
     
 }
 
 //****** funcao para os botoes ******//
 
-btnPlayer.addEventListener('click', ()=>{
-    audio.play()
+function player(){
     info(index)
+    tagAudio.setAttribute('src', playlist[index].font)
+    audio.play()
     btnPlayer.style.display = 'none'
     btnPause.style.display = 'flex'
-    audio.addEventListener('timeupdate', tempo)
-    // tagAudio.setAttribute('src', musicas[index].font)
 
-})
+    audio.addEventListener('timeupdate', tempo)
+}
+
+btnPlayer.addEventListener('click', player)
 
 
 btnPause.addEventListener('click', ()=>{
@@ -65,7 +112,7 @@ btnBack.addEventListener('click', ()=>{
     audio.pause()
     // audio.currentTime = 0
     info(index)
-    tagAudio.setAttribute('src', musicas[index].font)
+    tagAudio.setAttribute('src', playlist[index].font)
     audio.play()
 
 
@@ -77,7 +124,7 @@ btnNext.addEventListener('click', ()=>{
     audio.pause()
     // audio.currentTime = 0
     info(index)
-    tagAudio.setAttribute('src', musicas[index].font)
+    tagAudio.setAttribute('src', playlist[index].font)
     audio.play()
 
     
@@ -124,6 +171,49 @@ function uploadBarra(tempoReal){
 
 }
 
+/******* playlist  ********/
+window.onload = ordemPlaylist()
+function ordemPlaylist(){
+
+    let ul = document.querySelector('#lista')
+
+    playlist.forEach((item, posicao)=>{
+        let font = item.font
+        let capa = item.capa
+        let artista = item.artista
+        let nomeMusica = item.musica
+
+        console.log(posicao)
+        ul.innerHTML += `<li id="${posicao}" class="item-playlist">
+        <img src="${capa}" alt="">
+        <p> <span> ${artista}</span> <br>${nomeMusica}</p>
+    </li>`
+
+    })
+
+}
+
+let itemLista = document.querySelectorAll('.item-playlist')
+itemLista.forEach((item)=>{
+
+    item.addEventListener('click', (musica)=>{
+
+        let selecionada = musica.target
+        
+        index = selecionada.id
+        info(selecionada.id)
+        player()
+        // btnPlayer.style.display = 'none'
+        // btnPause.style.display = 'flex'
+        // audio.addEventListener('timeupdate', tempo)
+
+    })
+    
+})
+
+// console.log(li)
+
+
 
 /*  NAVEGACAO MENU */
 
@@ -142,11 +232,21 @@ let containerFavoritos = document.querySelector('#favoritos')
 
 
 
-
 btnMenu.forEach((sessao)=>{
+
 
     sessao.addEventListener('click', ()=>{
 
+        // if(sessao.id == 'nav-podcast'){
+        //     // document.querySelector('#podcasts').style.background = "url('./podcast/Tropa do Podpah/capa.jpeg')"
+           
+
+
+
+        // }else{
+        //     document.querySelector('#container-geral').style.background = "white"
+
+        // }
 
         switch(sessao.id){
             case 'nav-player':
@@ -162,9 +262,13 @@ btnMenu.forEach((sessao)=>{
             case 'nav-podcast': 
             containerPlayer.style.display = 'none';
             containerPodcast.style.display = 'flex';
+            
             containerRadio.style.display = 'none';
             containerExplorar.style.display = 'none';
-            containerFavoritos.style.display = 'none';;
+            containerFavoritos.style.display = 'none';
+
+            containerGeral.style.backgroundColor = 'black'
+
             break;
             case 'nav-radio': 
 
@@ -188,3 +292,21 @@ btnMenu.forEach((sessao)=>{
 
     })
 })
+
+
+
+
+
+
+
+// ------------ RADIO --------------- //
+
+// ativarRadio()
+// function ativarRadio(){
+
+//     let iconSpan = document.querySelector('.iconSpan')
+//     let spans = iconSpan.children
+    
+//     console.log(spans)
+//     for(let i = 0; )
+// }
