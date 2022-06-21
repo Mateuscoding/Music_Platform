@@ -7,7 +7,13 @@ let index = 0 // posição inicial da musica referente ao array "MUSICAS"
 
 let inicio = document.querySelector('#inicio')
 
+
+let lista = document.querySelector('#lista')
+let itensLista = lista.children
+
+
 // PACK DE MUSICAS - PLAYLIST 
+// console.log('cilick é ')
 
 let playlist = [
     {
@@ -69,9 +75,9 @@ let playlist = [
 
 tagAudio.setAttribute('src', playlist[index].font)
 
-window.onload = info(index)
+window.onload = atualizarDados(index)
 
-function info(index){
+function atualizarDados(index){
 
     setTimeout(()=>{
 
@@ -89,12 +95,11 @@ function info(index){
 //****** funcao para os botoes ******//
 
 function player(){
-    info(index)
-    tagAudio.setAttribute('src', playlist[index].font)
+  atualizarDados(index)
+    // tagAudio.setAttribute('src', playlist[index].font)
     audio.play()
     btnPlayer.style.display = 'none'
     btnPause.style.display = 'flex'
-
     audio.addEventListener('timeupdate', tempo)
 }
 
@@ -111,27 +116,22 @@ btnBack.addEventListener('click', ()=>{
     index--
     audio.pause()
     // audio.currentTime = 0
-    info(index)
+    atualizarDados(index)
     tagAudio.setAttribute('src', playlist[index].font)
     audio.play()
-
-
-    
 })
 
 btnNext.addEventListener('click', ()=>{
     index++
     audio.pause()
     // audio.currentTime = 0
-    info(index)
+    atualizarDados(index)
     tagAudio.setAttribute('src', playlist[index].font)
     audio.play()
-
     
 })
 
 audio.addEventListener('timeupdate', tempo())
-
 function tempo(){
     
     let duracaoTotal = audio.duration
@@ -147,13 +147,10 @@ function tempo(){
         inicio.textContent = '0'+minutos+':' +segundo;
 
         if(segundo >= 60){
-            // minutos++
 
             console.log(minutos)
             inicio.textContent = '0'+minutos+':0'+ segundo
-
         }
-
     }
 
     // uploadBarra(Math.floor(audio.duration/60), Math.floor(audio.duration % 60))
@@ -183,10 +180,11 @@ function ordemPlaylist(){
         let artista = item.artista
         let nomeMusica = item.musica
 
-        console.log(posicao)
-        ul.innerHTML += `<li id="${posicao}" class="item-playlist">
-        <img src="${capa}" alt="">
-        <p> <span> ${artista}</span> <br>${nomeMusica}</p>
+        // console.log(posicao)
+        ul.innerHTML += `<li class="${posicao} item-playlist">
+        <img class="${posicao} item-playlist" src="${capa}" alt="">
+
+        <p class="${posicao} item-playlist"> <span class="${posicao} item-playlist"> ${artista}</span> <br> ${nomeMusica}</p>
     </li>`
 
     })
@@ -195,25 +193,21 @@ function ordemPlaylist(){
 
 let itemLista = document.querySelectorAll('.item-playlist')
 itemLista.forEach((item)=>{
+  
+  item.addEventListener('click',(elemento)=>{ 
 
-    item.addEventListener('click', (musica)=>{
-
-        let selecionada = musica.target
-        
-        index = selecionada.id
-        info(selecionada.id)
+        audio.currentTime = 0
+        audio.pause()
+        let tag = elemento.target
+        index = parseInt(tag.classList[0])
+        // console.log(index)
+        atualizarDados(index)
+        tagAudio.setAttribute('src', playlist[index].font)
         player()
-        // btnPlayer.style.display = 'none'
-        // btnPause.style.display = 'flex'
-        // audio.addEventListener('timeupdate', tempo)
-
-    })
-    
+        btnPlayer.style.display = 'none'
+        btnPause.style.display = 'flex'
+  })
 })
-
-// console.log(li)
-
-
 
 /*  NAVEGACAO MENU */
 
@@ -234,64 +228,59 @@ let containerFavoritos = document.querySelector('#favoritos')
 
 btnMenu.forEach((sessao)=>{
 
+    sessao.addEventListener('click', (pagina)=>{
+      
+      // let pag = pagina.target
+      // // console.log(pag)
+      // if(pag.id == 'nav-podcast'){
+      //   document.getElementsByTagName('body')[0].style.background = "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./podcast/Tropa do Podpah/capa.jpeg')"
+      //   document.getElementsByTagName('body')[0].style.backgroundSize = 'cover'
 
-    sessao.addEventListener('click', ()=>{
+      // }else if(pag.id !== 'nav-podcast'){
+      //   document.getElementsByTagName('body')[0].style.backgroundColor = 'white'
 
-        // if(sessao.id == 'nav-podcast'){
-        //     // document.querySelector('#podcasts').style.background = "url('./podcast/Tropa do Podpah/capa.jpeg')"
-           
-
-
-
-        // }else{
-        //     document.querySelector('#container-geral').style.background = "white"
-
-        // }
-
-        switch(sessao.id){
+      // }
+    
+      switch(sessao.id){
             case 'nav-player':
-                console.log(sessao.id)
+                    containerPlayer.style.display = 'grid'
+                    containerPodcast.style.display = 'none'
+                    containerRadio.style.display = 'none'
+                    containerExplorar.style.display = 'none'
+                    containerFavoritos.style.display = 'none'
 
-                    containerPlayer.style.display = 'grid';
-                    containerPodcast.style.display = 'none';
-                    containerRadio.style.display = 'none';
-                    containerExplorar.style.display = 'none';
-                    containerFavoritos.style.display = 'none';
-
-            break;
+            break
             case 'nav-podcast': 
-            containerPlayer.style.display = 'none';
-            containerPodcast.style.display = 'flex';
+            containerPlayer.style.display = 'none'
+            containerPodcast.style.display = 'flex'
             
-            containerRadio.style.display = 'none';
-            containerExplorar.style.display = 'none';
-            containerFavoritos.style.display = 'none';
-
-            containerGeral.style.backgroundColor = 'black'
-
-            break;
+            containerRadio.style.display = 'none'
+            containerExplorar.style.display = 'none'
+            containerFavoritos.style.display = 'none'
+            console.log('foi')
+                     
+            break
             case 'nav-radio': 
 
-            console.log(sessao.id)
-            containerPlayer.style.display = 'none';
-            containerPodcast.style.display = 'none';
-            containerRadio.style.display = 'flex';
-            containerExplorar.style.display = 'none';
-            containerFavoritos.style.display = 'none';;
-            // document.querySelectorAll('.container-geral').style.background = 'white'
-            ;
+            containerPlayer.style.display = 'none'
+            containerPodcast.style.display = 'none'
+            containerRadio.style.display = 'flex'
+            containerExplorar.style.display = 'none'
+            containerFavoritos.style.display = 'none'
             break
-            case 'nav-explorar': console.log('sessão explorar');
+            case 'nav-explorar': console.log('sessão explorar')
             break
-            case 'nav-favoritos': console.log('sessão favoritos');
-            break;
+            case 'nav-favoritos': console.log('sessão favoritos')
+            break
             default: console.log('error')
     
         }
 
-
     })
+
 })
+
+
 
 
 
@@ -310,3 +299,7 @@ btnMenu.forEach((sessao)=>{
 //     console.log(spans)
 //     for(let i = 0; )
 // }
+
+
+
+

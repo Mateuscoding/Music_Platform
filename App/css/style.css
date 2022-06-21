@@ -97,7 +97,7 @@ header{
     align-items: center;
     /* background-color: aqua; */
     /* margin: 0px auto; */
-    display: none;
+    display: flex;
 }
 
 #musicaAtual{
@@ -225,14 +225,9 @@ header{
     .playlist ul{
         display: flex;
         flex-direction: column;
-        /* justify-content: center; */
         align-items: center;
-        
-        /* padding-top: 500px; */
         height: 70vh;
         overflow-y: scroll;
-        /* background-color: rgb(255, 145, 0); */
-        /* box-sizing: border-box; */
     }
 
     #lista::-webkit-scrollbar-track {
@@ -247,18 +242,17 @@ header{
         border-radius: 15px;
     }
 
-
-
     .playlist p:nth-child(1){
         color: rgb(26, 26, 26);
         font: 15px 'Saira Condensed';
         /* padding-top: 2  00px; */
     }
     .playlist li p span{
-        /* color: black; */
+        color: black;
         font-family: 'Saira Condensed';
         font-size: 15px;
         font-weight: bold;
+        /* z-index: -10; */
     }
 
     .playlist li{
@@ -272,6 +266,7 @@ header{
         margin: 10px 10px;
         border: 1px solid white;
         display: flex;
+        
         align-items: center;
         z-index: 1000000;
         font-family: 'Saira Condensed';
@@ -279,31 +274,21 @@ header{
         /* box-shadow: 0px 10px 10px -5px rgb(54, 54, 54); */
         border-bottom: 1px solid rgba(126, 125, 125, 0.71);
         transition: .5s;
-
-        /* overflow: scroll; */
     }
-
  
-    
     .playlist li:hover{
         cursor: pointer;
         transition: .5s;
         color: rgb(26, 26, 26);
         background-color: rgba(255, 51, 0, 0.966);
-        /* box-shadow: 0px -2px 20px -5px rgb(0, 0, 0); */
         padding: 10px;
-        /* font-size: 19px; */
 
-        /* border: 1px solid white; */
     }
-
 
     .playlist img{
         width: 35px;
         height: 35px;
     }
-
-
 
 @media (max-width: 700px) {
 
@@ -359,19 +344,16 @@ header{
     .playlist li{
         position: relative;
         background-color: transparent;
-     
         padding: 0;
         width: 230px;
         height: 230px;
         color: rgb(26, 26, 26);
-        
+ 
         justify-content: center;
         align-items: center;
         box-shadow: none;
-      
         border: none;
         border-radius: 5px;
-    
     }
     .playlist ul{
         width: 100%;
@@ -380,18 +362,14 @@ header{
         flex-direction: row;
         align-items: center;
         overflow-x: scroll;
-        
     }
-
     .playlist li{
         height: 100%;
         padding: 10px;
     }
     .playlist li p{
         width: 300px;
-    
     }
-
 }
 
 @media (max-width: 412px) {
@@ -403,8 +381,6 @@ header{
     #player{
         width: 100%;
     }
-
-
     .playlist{
         margin-left: 15px;
     }
@@ -420,8 +396,8 @@ header{
     position: relative;
     width: 80%;
     height: 100vh;
-    display: flex;
-    background-color: white;
+    display: none;
+
     font-family: 'Bebas Neue';
 }
 
@@ -437,6 +413,7 @@ header{
     /* display: flex; */
     /* flex-direction: column; */
     text-align: center;
+    /* color: white; */
 }
 
 
