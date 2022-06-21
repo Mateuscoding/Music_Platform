@@ -48,7 +48,7 @@ header{
 }
 
 #nav{
-    /* width: 0%; */
+    /* position: relative; */
     height: 100%;
     /* background-color: white; */
     display: flex;
@@ -292,6 +292,101 @@ header{
 
 @media (max-width: 700px) {
 
+
+
+    header{
+        position: absolute;
+        width: 100%;
+        /* height: 30vh; */
+        /* background-color: aqua; */
+        /* left: 50%; */
+        /* top: 50%; */
+        margin: 0 auto;
+        /* transform: translate(-50%, -50%); */
+        /* z-index: 100000000000; */
+    }
+
+    #btn-menu{
+        position: absolute;
+        top: 0%;
+        font-size: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 100;
+        width: 60px;
+        height: 8vh;
+        border: none;
+        background-color: white;
+        color: black;
+        z-index: 100000000000;
+
+        /* border-radius: 1px 1px 50% 50%; */
+    }
+
+    #btn-menu.foco{
+        background-color: rgb(255, 51, 0);
+    }
+
+    #hamburguer{
+        border-top: 2px solid black;
+        width: 20px;
+        
+    }
+
+    #hamburguer::after, #hamburguer::before{
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        height: 2px;
+        margin-top: 3px;
+        background-color: black;
+        transition: .3s;
+    }
+
+    #nav{
+        transition: .7s;
+        margin-left: -1000%;
+        position: absolute;
+        /* left: 50%; */
+
+    }
+    
+    #nav.active{
+        margin-left: 0%;
+        /* margin-top: 50px; */
+        /* margin: 100px 0; */
+        transition: .7s;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.582);
+        width: 100%;
+        /* height: 80%; */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        z-index: 100000000;
+    }
+
+
+    /* #nav.active #hamburguer{
+        border-top: none;
+    }
+
+    #nav.active #hamburguer::before{
+        transform: rotate(135deg);
+        position: relative;
+        bottom: -5px;
+    }
+    #nav.active#hamburguer::after{
+        transform: rotate(-135deg);
+    } */
+
     .barra{
         margin-top: -60px;
     }
@@ -300,7 +395,7 @@ header{
         margin-top: 40px;
     }
     .dados img{
-        background-color: aqua;
+        /* background-color: aqua; */
         width: 80%;
         height: 50%;
     }
@@ -314,19 +409,21 @@ header{
     }
 
     #player{
+        width: 100%;
         display: grid;
         grid-template: 1fr 1fr / 1fr 1fr;
         justify-content: center;
         align-items: center;
-        background-color: aquamarine;
+        /* background-color: aquamarine; */
         overflow: hidden;
     }
 
     #musicaAtual{
+        z-index: 100000;
         margin: 0;
         width: 100%;
         height: 80vh;
-        background-color: aqua;
+        /* background-color: aqua; */
         grid-column-start: 1;
         grid-column-end: 3;
     }
@@ -371,7 +468,7 @@ header{
         width: 300px;
     }
 }
-
+/* 
 @media (max-width: 412px) {
 
     header{
@@ -387,7 +484,7 @@ header{
     .playlist > .item-playlist img{
         width: 20px;
     }
-}
+} */
 
 /************* PODCAST *********** */
 

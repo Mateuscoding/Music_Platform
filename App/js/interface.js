@@ -1,3 +1,16 @@
+/********* RESPONSIVIDADE DO MENU  *********/
+
+let hamburguer = document.querySelector('#btn-menu')
+let navMenu = document.querySelector('#nav')
+
+hamburguer.addEventListener('click', ()=>{
+  navMenu.classList.toggle('active')
+  hamburguer.classList.toggle('foco')
+
+})  
+
+
+
 let tagAudio = document.querySelector('#audio')
 let btnPlayer = document.querySelector('#play')
 let btnPause = document.querySelector('#pause')
