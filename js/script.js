@@ -1,5 +1,5 @@
-alert('Bem vindo ao meu projeto')
-alert('Para acessar o sistema interno, é clicar em "entrar diratamente')
+alert('Bem vindo ao meu projeto GOOD MUSIC')
+alert('Para acessar o sistema interno é só clicar em ENTRAR diratamente')
 
 let btnLogin = document.querySelector('#btn-login')
 let btnCriar = document.querySelector('#btn-criar')

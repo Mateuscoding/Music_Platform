@@ -1,6 +1,20 @@
+// alert('Este é o sistema interno')
+//APRESENTACAO INICIAL 
+
+window.onload = apresentacao()
+function apresentacao(){
+
+    setTimeout(()=>{
+
+      document.querySelector('#apresentacao').style.display = 'none'
+
+    }, 12000)
+}
+
 /********* RESPONSIVIDADE DO MENU  *********/
 
 let hamburguer = document.querySelector('#btn-menu')
+
 let navMenu = document.querySelector('#nav')
 
 hamburguer.addEventListener('click', ()=>{
@@ -8,8 +22,6 @@ hamburguer.addEventListener('click', ()=>{
   hamburguer.classList.toggle('foco')
 
 })  
-
-
 
 let tagAudio = document.querySelector('#audio')
 let btnPlayer = document.querySelector('#play')
@@ -20,25 +32,22 @@ let index = 0 // posição inicial da musica referente ao array "MUSICAS"
 
 let inicio = document.querySelector('#inicio')
 
-
 let lista = document.querySelector('#lista')
 let itensLista = lista.children
 
-
-// PACK DE MUSICAS - PLAYLIST 
-// console.log('cilick é ')
+  /*  IMPORTANDO AS MUSICAS */ 
 
 let playlist = [
     {
     font: './playlist/musica0/Jason Derulo - Swalla (BL Moombahton Remix).mp3',
-    musica: 'Swalla (BL Moombahton Remix) 1', 
+    musica: 'Swalla (BL Moombahton Remix) - teste scroll animado', 
     artista: 'Jason Derulo',
     capa: './playlist/musica0/capa.jpg'
   }
 ,
   {
     font: './playlist/musica1/Tim Maia - Sossego (Lazy Bear Bootleg).mp3',
-    musica: 'Sossego (remix) 2', 
+    musica: 'Sossego (remix)', 
     artista: 'Tim Maia',
     capa: './playlist/musica1/capa.jpg'
   },
@@ -83,10 +92,7 @@ let playlist = [
   }
 ]
 
-// ATUALIZAÇÃO INICIAL DO PLAYER 
-// document.querySelector('#fim').textContent = minutos +':'+segundos;
-
-tagAudio.setAttribute('src', playlist[index].font)
+tagAudio.setAttribute('src', playlist[index].font) // MUSICA PADRÃO DESTACADA DE INICIO
 
 window.onload = atualizarDados(index)
 
@@ -96,28 +102,35 @@ function atualizarDados(index){
 
         let minutos = Math.floor(tagAudio.duration / 60)
         let segundos = Math.floor(tagAudio.duration % 60);
-        
         document.querySelector('#fim').textContent = minutos +':'+segundos;
         document.querySelector('#nome-musica').textContent = playlist[index].musica
         document.querySelector('#artista').textContent = playlist[index].artista
         document.querySelector('#capa').setAttribute('src', playlist[index].capa)
-    }, 100)
-    
+    }, 1000)
 }
 
-//****** funcao para os botoes ******//
+//****** funcao para os controles player ******//
 
 function player(){
+  
   atualizarDados(index)
-    // tagAudio.setAttribute('src', playlist[index].font)
     audio.play()
     btnPlayer.style.display = 'none'
     btnPause.style.display = 'flex'
     audio.addEventListener('timeupdate', tempo)
+  
+    // ANIMAR/DESTACAR MUSICAS QUANDO ESTIVER TOCANDO NA PLAYLIST
+    document.querySelectorAll('.iconSpan').forEach((animado, i)=>{ 
+
+    if(i == index){
+      animado.style.display = 'flex'
+    }else{
+          animado.style.display = 'none'
+    }
+  })
 }
 
 btnPlayer.addEventListener('click', player)
-
 
 btnPause.addEventListener('click', ()=>{
     audio.pause()
@@ -131,30 +144,25 @@ btnBack.addEventListener('click', ()=>{
     // audio.currentTime = 0
     atualizarDados(index)
     tagAudio.setAttribute('src', playlist[index].font)
-    audio.play()
+    player()
 })
 
 btnNext.addEventListener('click', ()=>{
     index++
     audio.pause()
-    // audio.currentTime = 0
     atualizarDados(index)
     tagAudio.setAttribute('src', playlist[index].font)
-    audio.play()
-    
+    player()
 })
 
 audio.addEventListener('timeupdate', tempo())
 function tempo(){
     
-    let duracaoTotal = audio.duration
     let tempoReal = audio.currentTime 
     let segundo = Math.floor(audio.currentTime % 60);
-    // console.log(segundo)
     
     let minutos = Math.floor(audio.currentTime / 60);
     inicio.textContent = '0'+minutos+':0' +segundo;
-    // let segundos = 0;
     
     if(segundo >= 10){
         inicio.textContent = '0'+minutos+':' +segundo;
@@ -165,9 +173,6 @@ function tempo(){
             inicio.textContent = '0'+minutos+':0'+ segundo
         }
     }
-
-    // uploadBarra(Math.floor(audio.duration/60), Math.floor(audio.duration % 60))
-
     uploadBarra(tempoReal)
 
 }
@@ -188,16 +193,23 @@ function ordemPlaylist(){
     let ul = document.querySelector('#lista')
 
     playlist.forEach((item, posicao)=>{
-        let font = item.font
         let capa = item.capa
         let artista = item.artista
         let nomeMusica = item.musica
 
-        // console.log(posicao)
         ul.innerHTML += `<li class="${posicao} item-playlist">
         <img class="${posicao} item-playlist" src="${capa}" alt="">
 
         <p class="${posicao} item-playlist"> <span class="${posicao} item-playlist"> ${artista}</span> <br> ${nomeMusica}</p>
+
+        <div class="iconSpan">
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+        <span>.</span>
+    </div>
+
     </li>`
 
     })
@@ -219,11 +231,17 @@ itemLista.forEach((item)=>{
         player()
         btnPlayer.style.display = 'none'
         btnPause.style.display = 'flex'
-  })
+
+        
+        
+      })
+      
+  
+
 })
 
-/*  NAVEGACAO MENU */
-
+/*  NAVEGACAO MENU  - FUTURO DESENVOLVIMENTO DA PLATAFORMA COMPLETA */
+/*
 let btnMenu = document.querySelectorAll('.nav')
 let navPlayer = document.querySelector('#nav-player')
 let navPodcast = document.querySelector('#nav-podcast')
@@ -242,18 +260,7 @@ let containerFavoritos = document.querySelector('#favoritos')
 btnMenu.forEach((sessao)=>{
 
     sessao.addEventListener('click', (pagina)=>{
-      
-      // let pag = pagina.target
-      // // console.log(pag)
-      // if(pag.id == 'nav-podcast'){
-      //   document.getElementsByTagName('body')[0].style.background = "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./podcast/Tropa do Podpah/capa.jpeg')"
-      //   document.getElementsByTagName('body')[0].style.backgroundSize = 'cover'
-
-      // }else if(pag.id !== 'nav-podcast'){
-      //   document.getElementsByTagName('body')[0].style.backgroundColor = 'white'
-
-      // }
-    
+       
       switch(sessao.id){
             case 'nav-player':
                     containerPlayer.style.display = 'grid'
@@ -297,22 +304,4 @@ btnMenu.forEach((sessao)=>{
 
 
 
-
-
-
-
-// ------------ RADIO --------------- //
-
-// ativarRadio()
-// function ativarRadio(){
-
-//     let iconSpan = document.querySelector('.iconSpan')
-//     let spans = iconSpan.children
-    
-//     console.log(spans)
-//     for(let i = 0; )
-// }
-
-
-
-
+*/

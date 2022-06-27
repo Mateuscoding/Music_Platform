@@ -12,7 +12,7 @@
     font-family: 'Bebas Neue';
     src: url('../../App/Bebas_Neue/BebasNeue-Regular.ttf');
 }
-
+/* 
 
 .dados-podcast i{
     font-size: 200px;
@@ -21,7 +21,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: rgb(255, 51, 0);
-}
+} */
 
 .oculto{
     visibility: hidden;
@@ -32,7 +32,28 @@ body{
     height: 100vh;
     background-color: white;
     color: rgb(26, 26, 26);
+    overflow: hidden;
+    position: relative;
 }
+#apresentacao{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 105vh;
+    background-color: rgba(26, 26, 26, 0.986);
+    z-index: 10000000;
+    color: white;
+    font-family: 'Saira Condensed';
+}
+#apresentacao > h2{
+    color: rgb(255, 51, 0);
+    font-size: 30px;
+    font-family: 'Bebas Neue';   
+}
+
 
 #container-geral{
     display: flex;
@@ -45,12 +66,13 @@ body{
 header{
     width: 20%;
     height: 100vh;
+    /* background-color: aqua; */
 }
 
 #nav{
     /* position: relative; */
     height: 100%;
-    /* background-color: white; */
+    /* background-color: blue; */
     display: flex;
     flex-direction: column;
     gap: 100px;
@@ -89,7 +111,7 @@ header{
 
 #player{ 
     position: relative;
-    width: 80%;
+    width: 100%;
     height: 100vh;
     display: grid;
     grid-template: 1fr / 1fr 1fr;
@@ -97,11 +119,12 @@ header{
     align-items: center;
     /* background-color: aqua; */
     /* margin: 0px auto; */
-    display: flex;
+    /* display: flex; */
+    /* justify-content: spa; */
 }
 
 #musicaAtual{
-    width: 60%;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -117,30 +140,68 @@ header{
     flex-direction: column;
     align-items: center;
     align-items: center;
+    /* overflow: hidden; */
     /* background-color: black; */
 }
     .dados img{
         width: 25vw;
         height: 50%;
         border-radius: 5px;
-    }
 
+    }
+    .dados span{
+        position: relative;
+        width: 300px;
+        height: 50px;
+        /* background-color: aqua; */
+        overflow: hidden;
+    }
     #nome-musica{
-        line-height: 30px;
-        text-align: center;
+        /* align-self: flex-end; */
+        /* top: 50%; */
+        position: absolute;
+        /* line-height: 30px; */
+        text-align: left;
         color: rgb(26, 26, 26);
         margin: 10px;
+        /* width: 500px; */
+        text-align: left;
+        /* left: 50%; */
+        overflow: hidden;
+        widows: 5000px;
+        height: 100px;
+        /* background-color: blueviolet; */
+        
+        
     }
+
+    /* .nomeMusica-Animado{
+        animation-name: nomeMusicaAnimado;
+        animation-delay: 5s;
+        animation-duration: 40s;
+        animation-fill-mode: backwards;
+        animation-iteration-count: infinite;
+    }
+
+    @keyframes nomeMusicaAnimado {
+
+        0%{
+            left: 0%;
+        }
+
+        100%{
+            left: -130%;
+        }
+
+    } */
     #artista{
         text-align: center;
         color: rgb(26, 26, 26);
         font-size: 20px;
-        /* margin-top: 10px; */
-
     }
 
 .barra{
-    margin-top: -50px;
+    margin-top: -100px;
     display: flex;
     width: 300px;
     height: 10px;
@@ -148,7 +209,7 @@ header{
     background-color: rgb(26, 26, 26);
     /* border: 1px solid white; */
     align-items: center;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 #progresso{
@@ -215,6 +276,7 @@ header{
 
 
 .playlist{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -222,7 +284,7 @@ header{
 
 }
 
-    .playlist ul{
+    #lista{
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -247,7 +309,7 @@ header{
         font: 15px 'Saira Condensed';
         /* padding-top: 2  00px; */
     }
-    .playlist li p span{
+    #lista li p span{
         color: black;
         font-family: 'Saira Condensed';
         font-size: 15px;
@@ -255,7 +317,7 @@ header{
         /* z-index: -10; */
     }
 
-    .playlist li{
+    #lista li{
         list-style-type: none;
         /* background-color: rgb(255, 8, 8); */
         color: black;
@@ -276,7 +338,7 @@ header{
         transition: .5s;
     }
  
-    .playlist li:hover{
+    #lista li:hover{
         cursor: pointer;
         transition: .5s;
         color: rgb(26, 26, 26);
@@ -285,7 +347,11 @@ header{
 
     }
 
-    .playlist img{
+    #lista p{
+        width: 270px;
+        /* background-color: aqua; */
+    }
+    #lista img{
         width: 35px;
         height: 35px;
     }
@@ -417,7 +483,7 @@ header{
         /* background-color: aquamarine; */
         overflow: hidden;
     }
-
+    
     #musicaAtual{
         z-index: 100000;
         margin: 0;
@@ -438,21 +504,22 @@ header{
         /* background-color: ; */
     }
 
-    .playlist li{
+    #lista li{
         position: relative;
         background-color: transparent;
         padding: 0;
         width: 230px;
         height: 230px;
         color: rgb(26, 26, 26);
- 
+        height: 100%;
+        padding: 5px;
         justify-content: center;
         align-items: center;
         box-shadow: none;
         border: none;
         border-radius: 5px;
     }
-    .playlist ul{
+    #lista{
         width: 100%;
         height: 100px;
         display: flex;
@@ -460,13 +527,15 @@ header{
         align-items: center;
         overflow-x: scroll;
     }
-    .playlist li{
-        height: 100%;
-        padding: 10px;
+    #lista li:hover{
+        padding: 5px;
     }
-    .playlist li p{
-        width: 300px;
-    }
+    
+        #lista li p{
+            width: 300px;
+        }
+    
+
 }
 /* 
 @media (max-width: 412px) {
@@ -494,6 +563,8 @@ header{
     width: 80%;
     height: 100vh;
     display: none;
+    justify-content: center;
+    align-items: center;
 
     font-family: 'Bebas Neue';
 }
@@ -558,21 +629,31 @@ header{
     color: rgb(255, 51, 0);
 }
 
-.iconSpan{
+
+.tocando{
     display: flex;
+}
+.iconSpan{
+    /* position: absolute; */
+    display: none;
     justify-content: center;
     align-items: center;
     color: transparent;
-    gap: 10px;
-    width: 200px;
-    height: 100px;
-    /* background-color: black; */
+    gap: 3px;
+    width: 35px;
+    /* height: 100px; */
+    /* background-color: blue; */
+    /* left: 1%; */
+    justify-self: flex-end;
+    color: transparent;
+}
+
+.iconSpan span{
+    width: 3px;
 }
 
 .iconSpan span:nth-child(1){
     /* content: ''; */
-    width: 10px;
-    height: 40px;
     background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan1 alternate-reverse 1s infinite;
@@ -580,8 +661,6 @@ header{
 
 .iconSpan span:nth-child(2){
     /* content: ''; */
-    width: 10px;
-    height: 70px;
     background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan2 alternate 1s infinite;
@@ -590,8 +669,6 @@ header{
 
 .iconSpan span:nth-child(3){
     /* content: ''; */
-    width: 10px;
-    height: 100px;
     background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan3 alternate 1s infinite;
@@ -600,8 +677,6 @@ header{
 
 .iconSpan span:nth-child(4){
     /* content: ''; */
-    width: 10px;
-    height: 70px;
     background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan4 alternate 1s infinite;
@@ -610,8 +685,6 @@ header{
 
 .iconSpan span:nth-child(5){
     /* content: ''; */
-    width: 10px;
-    height: 40px;
     background-color: rgb(26, 26, 26);
     border-radius: 15px;
     animation: animaSpan5 alternate-reverse 1s infinite;
@@ -621,55 +694,55 @@ header{
 @keyframes animaSpan1{
     
     0%{
-        height: 40px;
+        height: 15px;
     }
 
     100%{
-        height: 1px;
+        height: 5px;
     }
 }
 
 @keyframes animaSpan2{
     
     0%{
-        height: 70px;
+        height: 25px;
     }
 
     100%{
-        height: 35px;
+        height: 10px;
     }
 }
 
 @keyframes animaSpan3{
     
     0%{
-        height: 100px;
+        height: 30px;
     }
 
     100%{
-        height: 40px;
+        height: 15px;
     }
 }
 
 @keyframes animaSpan4{
     
     0%{
-        height: 70px;
+        height: 25px;
     }
 
     100%{
-        height: 35px;
+        height: 10px;
     }
 }
 
 @keyframes animaSpan5{
     
     0%{
-        height: 40px;
+        height: 15px;
     }
 
     100%{
-        height: 1px;
+        height: 5px;
     }
 }
 
