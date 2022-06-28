@@ -37,7 +37,7 @@ body{
 }
 #apresentacao{
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -129,48 +129,48 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* gap: 10px; */
     align-items: center;
-    /* background-color: rgba(255, 51, 0, 0.582); */
+    background-color: rgba(255, 51, 0, 0.582);
 }
 .dados{
     width: 300px;
-    height: 400px;
+    /* height: 700px; */
     font-family: 'Saira Condensed';
     display: flex;
+    /* gap: 500px; */
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    align-items: center;
-    /* overflow: hidden; */
-    /* background-color: black; */
+    overflow: hidden;
+    /* background-color: yellow; */
 }
     .dados img{
-        width: 25vw;
-        height: 50%;
+        width: 100%;
+        height: 230px;
         border-radius: 5px;
 
     }
-    .dados span{
+    /* .dados span{
         position: relative;
-        width: 300px;
         height: 50px;
-        /* background-color: aqua; */
         overflow: hidden;
-    }
+    } */
     #nome-musica{
         /* align-self: flex-end; */
         /* top: 50%; */
-        position: absolute;
+        /* position: absolute; */
         /* line-height: 30px; */
-        text-align: left;
+        text-align: center;
         color: rgb(26, 26, 26);
-        margin: 10px;
+        /* margin: 10px; */
         /* width: 500px; */
-        text-align: left;
+        text-align: center;
         /* left: 50%; */
-        overflow: hidden;
-        widows: 5000px;
-        height: 100px;
-        /* background-color: blueviolet; */
+        /* overflow: hidden; */
+        widows: 300px;
+        /* height: 100px; */
+        /* background-color    : blueviolet; */
         
         
     }
@@ -201,7 +201,7 @@ header{
     }
 
 .barra{
-    margin-top: -100px;
+    margin-top: 10px;
     display: flex;
     width: 300px;
     height: 10px;
@@ -453,10 +453,6 @@ header{
         transform: rotate(-135deg);
     } */
 
-    .barra{
-        margin-top: -60px;
-    }
-
     .dados{
         margin-top: 40px;
     }
@@ -507,7 +503,7 @@ header{
     #lista li{
         position: relative;
         background-color: transparent;
-        padding: 0;
+        padding: 10px;
         width: 230px;
         height: 230px;
         color: rgb(26, 26, 26);

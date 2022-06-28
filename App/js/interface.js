@@ -1,15 +1,15 @@
 // alert('Este é o sistema interno')
 //APRESENTACAO INICIAL 
 
-window.onload = apresentacao()
-function apresentacao(){
+// // window.onload = apresentacao
+// function apresentacao(){
 
-    setTimeout(()=>{
+//     setTimeout(()=>{
 
-      document.querySelector('#apresentacao').style.display = 'none'
+//       document.querySelector('#apresentacao').style.display = 'none'
 
-    }, 12000)
-}
+//     }, 12000)
+// }
 
 /********* RESPONSIVIDADE DO MENU  *********/
 
